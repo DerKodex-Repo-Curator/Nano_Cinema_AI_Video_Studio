@@ -22,11 +22,75 @@
 **An open-source, end-to-end AI video production pipeline optimized for 8GB VRAM consumer GPUs.**     
 We aim to solve resource constraints by combining efficient open-source models to achieve a **"free and unlimited"** video production workflow that **runs smoothly on consumer-grade hardware**.
 
+If you find this project interesting, please give it a ⭐ **Star**! Thanks!!
+
+## 📑 Table of Contents
+- [🚀 Workflow Overview](#-workflow-overview)
+- [🎬 Demo Showcase](#-demo-showcase)
+- [📷 UI Screenshot](#-ui-screenshot)
+- [🌟 Background & Motivation](#-background--motivation)
+- [🛠️ Technology Stack](#-technology-stack)
+- [📦 Getting Started](#-getting-started)
+- [📘 User Guide](#-user-guide)
+- [🔭 Roadmap & Vision](#-roadmap--vision)
+- [🙏 Acknowledgements](#-acknowledgements)
+- [📈 Star History](#-star-history)
+
 ## 🚀 Workflow Overview
 
 This project implements a complete generative AI pipeline orchestrated via a **Gradio Web UI**, allowing users to create short films from simple text prompts entirely locally (with API support for text).
 
 > **Script** (Llama-3.3-70b via Groq) ➡️ **Images** (SDXL-Turbo) ➡️ **Audio** (EdgeTTS) ➡️ **Video** (LTX) ➡️ **Composition** (FFmpeg)
+
+```mermaid
+graph TD
+    %% 定義樣式
+    classDef input fill:#f9f,stroke:#333,stroke-width:2px,color:black;
+    classDef llm fill:#FFD700,stroke:#333,stroke-width:2px,color:black;
+    classDef vis fill:#FF7C00,stroke:#333,stroke-width:2px,color:black;
+    classDef aud fill:#9370DB,stroke:#333,stroke-width:2px,color:white;
+    classDef vid fill:#4B0082,stroke:#333,stroke-width:2px,color:white;
+    classDef render fill:#228B22,stroke:#333,stroke-width:2px,color:white;
+
+    %% 流程開始
+    subgraph User_Input ["🎬 User Input (Gradio UI)"]
+        direction TB
+        A(["📝 Theme & Scene Count"]):::input
+    end
+
+    subgraph Script_Engine ["🧠 Script Engine (Groq API)"]
+        direction TB
+        B["🤖 Llama-3.3-70b"]:::llm
+        B -->|Regex Parsing| C{Scene Splitter}
+        C -->|Output 1| D["📜 Narration Text"]
+        C -->|Output 2| E["🖼️ SDXL Image Prompt"]
+        C -->|Output 3| F["🎥 LTX Video Prompt"]
+    end
+
+    subgraph Audio_Pipeline ["🗣️ Audio Pipeline"]
+        D --> G["EdgeTTS Service"]:::aud
+        G --> H("Mp3 Audio + Duration Calc"):::aud
+    end
+
+    subgraph Visual_Pipeline ["🎨 Visual & Motion Pipeline"]
+        E --> I["⚡ SDXL-Turbo (Text-to-Image)"]:::vis
+        I -->|Keyframe Image| J["High-Res PNG"]
+        J --> K["🎞️ LTX-Video (Image-to-Video)"]:::vid
+        F --> K
+        K -->|241 Frames| L("Raw Video Clip"):::vid
+    end
+
+    subgraph Composition ["⚙️ FFmpeg Rendering Engine"]
+        H --> M["Sync Logic: Audio Len + 1.0s Padding"]:::render
+        L --> M
+        M --> N["Scene Segment .mp4"]:::render
+        N --> O["Final Concat & Subtitle Burn"]:::render
+        O --> P(["🎉 Final Movie .mp4"]):::input
+    end
+
+    %% 連接層級
+    A --> B
+```
 
 ---
 
@@ -96,7 +160,7 @@ The goal of **Nano Cinema AI Video Studio** is to **democratize AI video creatio
 
 ---
 
-## 🛠️ Technology Stack
+## <a id="-technology-stack"></a>🛠️ Technology Stack
 
 We carefully selected components to balance **performance, cost, and speed**:
 
@@ -304,8 +368,59 @@ To unlock higher output quality (HD, Full HD, or 2K), you need to modify the set
 
 ---
 
-## 📦 Future work
+## 🔭 Roadmap & Vision
 
-1. 
+### 1. The "All-in-One" Unified AI Model
+While our current pipeline successfully combines multiple distinct models to achieve high-quality, all-in-one video production (capable of generating 10m - 1hr+ content), our future goal is to consolidate this into a **single AI model**.
+* **The Goal:** To develop a unified model capable of handling the entire production workflow—including scriptwriting, video generation, audio synthesis, and subtitling—in one pass.
+* **Key Advantages:** We aim to achieve this while maintaining **low hardware requirements** and ensuring the tool remains **free and unlimited**. This evolution will provide high-quality long-form capabilities with greater parameter optimization and selectivity, satisfying diverse user needs across various professional fields.
 
-...
+### 2. Identity Retention & Visual Consistency
+To solve the "character morphing" issue inherent in pure Text-to-Video models, we plan to integrate **Multi-ControlNet** and **IP-Adapter (Image Prompt)** workflows.
+* **Methodology:** Moving from simple `Text-to-Image` to `Text + Reference Image-to-Video`.
+* **Impact:** This will ensure that a protagonist's facial features, clothing, and style remain mathematically consistent across different scenes, lighting conditions, and camera angles.
+
+### 3. Unified Audio-Visual Generation
+We aim to transcend the current limitation of separate audio layers (EdgeTTS). Future updates will explore **end-to-end multimodal models** capable of generating video and audio simultaneously.
+* **Key Feature:** **Lip-Sync & Audio-Driven Animation.** Characters will not just move; they will speak with perfect lip synchronization and emotive expressions derived directly from the script dialogue.
+
+### 4. Democratization of Advanced Content Creation
+Our ultimate vision is to empower SMEs (Small and Medium-sized Enterprises), educators, and independent creators to produce "Netflix-quality" content at zero marginal cost.
+
+* **🎓 Immersive Education:**
+    * History and Science teachers can instantly generate historically accurate reenactments or visualize abstract concepts, turning dry textbooks into engaging cinematic experiences.
+
+* **🧬 Scientific Communication:**
+    * Visualizing complex abstract concepts to optimize communication strategies, facilitate easier understanding, and promote the popularization of key ideas.
+
+* **📊 Hyper-Personalized Marketing Automation:**
+    * High video production costs limit scalability. With our system Nano Cinema, businesses can generate 1,000 unique video ad variations overnight—each customized to specific customer names, needs, and languages. This drives unprecedented conversion rates without hiring a production crew.
+
+* **🎥 Independent Storytelling:**
+    * Supporting independent creators. Whether for graphic novels, indie films, or social commentary, Nano Cinema ensures that the only limit to creation is imagination, not budget.
+
+We are committed to maintaining the optimization of this "all-in-one" pipeline for consumer-grade GPUs, ensuring that the future of film and video production remains open and accessible to everyone.
+
+---
+
+## 🙏 Acknowledgements
+
+We stand on the shoulders of giants. This project would not be possible without the open-source contributions from:
+
+* **[Meta AI](https://ai.meta.com/)** for the Llama-3 language model.
+* **[Stability AI](https://stability.ai/)** for the SDXL-Turbo diffusion model.
+* **[Lightricks](https://lightricks.com/)** for the LTX-Video generation model.
+* **[Microsoft Edge](https://www.microsoft.com/en-us/edge)** for the high-quality TTS engine.
+* **[Gradio](https://gradio.app/)** for the amazing UI framework.
+
+---
+
+## 📈 Star History
+
+<a href="https://star-history.com/#wajason/Nano_Cinema_AI_Video_Studio&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wajason/Nano_Cinema_AI_Video_Studio&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wajason/Nano_Cinema_AI_Video_Studio&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=wajason/Nano_Cinema_AI_Video_Studio&type=Date" />
+ </picture>
+</a>
