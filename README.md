@@ -1,6 +1,26 @@
 # 🎬 Nano Cinema AI Video Studio
 
-**An open-source, end-to-end AI video production pipeline optimized for 8GB VRAM consumer GPUs.**
+[![GitHub Stars](https://img.shields.io/github/stars/wajason/Nano_Cinema_AI_Video_Studio?style=for-the-badge&logo=github&color=3F8F9B)](https://github.com/wajason/Nano_Cinema_AI_Video_Studio/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/wajason/Nano_Cinema_AI_Video_Studio?style=for-the-badge&logo=github&color=3F8F9B)](https://github.com/wajason/Nano_Cinema_AI_Video_Studio/network/members)
+[![License](https://img.shields.io/github/license/wajason/Nano_Cinema_AI_Video_Studio?style=for-the-badge&logo=opensourceinitiative&color=3F8F9B)](./LICENSE)
+[![Run in Colab](https://img.shields.io/badge/Open%20in-Colab-3F8F9B?style=for-the-badge&logo=googlecolab)](https://colab.research.google.com/github/wajason/Nano_Cinema_AI_Video_Studio/blob/main/Nano_Cinema_AI_Video_Studio.ipynb)
+
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Gradio](https://img.shields.io/badge/Gradio-UI-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app/)
+[![FFmpeg](https://img.shields.io/badge/FFmpeg-Rendering-007808?style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
+[![GPU](https://img.shields.io/badge/GPU-NVIDIA_CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
+
+[![Model](https://img.shields.io/badge/LLM-Llama_3-040404?style=for-the-badge&logo=meta&logoColor=white)](https://ai.meta.com/llama/)
+[![Model](https://img.shields.io/badge/Image-SDXL_Turbo-FA5F29?style=for-the-badge&logo=stabilityai&logoColor=white)](https://huggingface.co/stabilityai/sdxl-turbo)
+[![Model](https://img.shields.io/badge/Video-LTX_Video-4B0082?style=for-the-badge&logo=google&logoColor=white)](https://huggingface.co/Lightricks/LTX-Video)
+[![VRAM](https://img.shields.io/badge/VRAM_Optimized-8GB-success?style=for-the-badge&logo=speedtest&logoColor=white)]()
+
+<br>
+
+**An open-source, end-to-end AI video production pipeline optimized for 8GB VRAM consumer GPUs.**     
+We aim to solve resource constraints by combining efficient open-source models to achieve a **"free and unlimited"** video production workflow that **runs smoothly on consumer-grade hardware**.
 
 ## 🚀 Workflow Overview
 
@@ -268,6 +288,19 @@ If a specific scene fails (e.g., Scene 3 has a glitch):
 3. Click **Generate**.
 
 The system will only re-calculate Scene 3 and intelligently stitch it back with the existing valid files. This saves massive amounts of time compared to re-running the whole movie.
+
+#### 5. Custom Resolution (High Definition) 🛠️
+To unlock higher output quality (HD, Full HD, or 2K), you need to modify the settings directly in the `Nano_Cinema_AI_Video_Studio.ipynb` file. The default is set to `768x512` for optimal speed.
+
+* **Where to edit:**
+    1.  **Gradio Interface:** Search for the `## Gradio` cell and update the variables `img_w` and `img_h`.
+    2.  **Generation Logic:** Search for the `## Audio & Video generation tool` cell. Locate `width=768, height=512` and the code line:
+        `img = Image.open(img_path).convert("RGB").resize((768, 512))`
+* **Target Resolutions:** Update these values to your preferred dimensions, such as:
+    * `1280 x 720` (720p)
+    * `1920 x 1080` (1080p)
+    * `2560 x 1440` (2K)
+* *Note:* Increasing resolution will significantly increase VRAM usage and generation time.
 
 ---
 
