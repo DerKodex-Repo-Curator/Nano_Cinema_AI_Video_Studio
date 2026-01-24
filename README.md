@@ -9,18 +9,19 @@ This project implements a complete generative AI pipeline orchestrated via a **G
 > **Script** (Llama-3.3-70b via Groq) ➡️ **Images** (SDXL-Turbo) ➡️ **Audio** (EdgeTTS) ➡️ **Video** (LTX) ➡️ **Composition** (FFmpeg)
 
 ---
+
 ## 🎬 Demo Showcase
 
 ### 1. Interstellar Hamster: The Search for the Giant Carrot Planet 🐹🥕
 <table>
   <tr>
-    <td width="65%" style="vertical-align: middle;">
-      <video src="examples/1.mp4" controls width="100%"></video>
+    <td width="50%" style="vertical-align: middle;">
+      <video src="https://github.com/user-attachments/assets/8e2070a1-6ecf-4a51-bde9-47150836fb4e" controls width="100%" style="display:block; margin: 0 auto;"></video>
     </td>
-    <td width="35%" style="vertical-align: middle;">
-      <img src="examples/1-1.png" width="48%"> <img src="examples/1-2.png" width="48%">
-      <br><br>
-      <img src="examples/1-3.png" width="48%"> <img src="examples/1-4.png" width="48%">
+    <td width="50%" style="vertical-align: middle; text-align: center;">
+      <img src="examples/1-1.png" width="49%"> <img src="examples/1-2.png" width="49%">
+      <br>
+      <img src="examples/1-3.png" width="49%"> <img src="examples/1-4.png" width="49%">
     </td>
   </tr>
 </table>
@@ -28,27 +29,27 @@ This project implements a complete generative AI pipeline orchestrated via a **G
 ### 2. The Flying Pig's Guide to Success: Find Your Wind! 🐷✈️
 <table>
   <tr>
-    <td width="65%" style="vertical-align: middle;">
-      <video src="examples/2.mp4" controls width="100%"></video>
+    <td width="50%" style="vertical-align: middle;">
+      <video src="https://github.com/user-attachments/assets/b82fdf76-8a84-48d9-bb14-0a2b38efedc0" controls width="100%" style="display:block; margin: 0 auto;"></video>
     </td>
-    <td width="35%" style="vertical-align: middle;">
-      <img src="examples/2-1.png" width="48%"> <img src="examples/2-2.png" width="48%">
-      <br><br>
-      <img src="examples/2-3.png" width="48%"> <img src="examples/2-4.png" width="48%">
+    <td width="50%" style="vertical-align: middle; text-align: center;">
+      <img src="examples/2-1.png" width="49%"> <img src="examples/2-2.png" width="49%">
+      <br>
+      <img src="examples/2-3.png" width="49%"> <img src="examples/2-4.png" width="49%">
     </td>
   </tr>
 </table>
 
 ### 3. More Demos 📺
 Here are some additional generated results:
-
 <table>
   <tr>
-    <td width="33%"><video src="examples/3.mp4" controls width="100%"></video></td>
-    <td width="33%"><video src="examples/4.mp4" controls width="100%"></video></td>
-    <td width="33%"><video src="examples/5.mp4" controls width="100%"></video></td>
+    <td width="33%"><video src="https://github.com/user-attachments/assets/f83e6bed-9c64-47ff-a08b-dbef0dc9674e" controls width="100%"></video></td>
+    <td width="33%"><video src="https://github.com/user-attachments/assets/76487bfb-ca15-47bc-b749-da56179bc5c7" controls width="100%"></video></td>
+    <td width="33%"><video src="https://github.com/user-attachments/assets/2b5db194-41d7-4292-9f7f-55598e5664f9" controls width="100%"></video></td>
   </tr>
 </table>
+
 ---
 
 ## 📷 UI Screenshot
@@ -270,13 +271,8 @@ The system will only re-calculate Scene 3 and intelligently stitch it back with 
 
 ---
 
-## 📦 Demo
+## 📦 Future work
 
-
-https://github.com/user-attachments/assets/891979ca-4ddc-406e-a5fe-edb0a7cfd89c
-
-https://github.com/user-attachments/assets/ee92e12f-9ec3-474d-9d5e-cc3e33f518d2
-
-https://github.com/user-attachments/assets/9813c677-f94d-4465-8594-86b5877ef166
+1. 
 
 ...
