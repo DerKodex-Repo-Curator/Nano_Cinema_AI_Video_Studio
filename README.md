@@ -8,11 +8,58 @@ This project implements a complete generative AI pipeline orchestrated via a **G
 
 > **Script** (Llama-3.3-70b via Groq) ➡️ **Images** (SDXL-Turbo) ➡️ **Audio** (EdgeTTS) ➡️ **Video** (LTX) ➡️ **Composition** (FFmpeg)
 
+---
+## 🎬 Demo Showcase
 
+### 1. Interstellar Hamster: The Search for the Giant Carrot Planet 🐹🥕
+<table>
+  <tr>
+    <td width="65%" style="vertical-align: middle;">
+      <video src="examples/1.mp4" controls width="100%"></video>
+    </td>
+    <td width="35%" style="vertical-align: middle;">
+      <img src="examples/1-1.png" width="48%"> <img src="examples/1-2.png" width="48%">
+      <br><br>
+      <img src="examples/1-3.png" width="48%"> <img src="examples/1-4.png" width="48%">
+    </td>
+  </tr>
+</table>
+
+### 2. The Flying Pig's Guide to Success: Find Your Wind! 🐷✈️
+<table>
+  <tr>
+    <td width="65%" style="vertical-align: middle;">
+      <video src="examples/2.mp4" controls width="100%"></video>
+    </td>
+    <td width="35%" style="vertical-align: middle;">
+      <img src="examples/2-1.png" width="48%"> <img src="examples/2-2.png" width="48%">
+      <br><br>
+      <img src="examples/2-3.png" width="48%"> <img src="examples/2-4.png" width="48%">
+    </td>
+  </tr>
+</table>
+
+### 3. More Demos 📺
+Here are some additional generated results:
+
+<table>
+  <tr>
+    <td width="33%"><video src="examples/3.mp4" controls width="100%"></video></td>
+    <td width="33%"><video src="examples/4.mp4" controls width="100%"></video></td>
+    <td width="33%"><video src="examples/5.mp4" controls width="100%"></video></td>
+  </tr>
+</table>
 ---
 
 ## 📷 UI Screenshot
 
+Here is a walkthrough of the generation pipeline using the Gradio UI:
+
+| **1. Script Generation** | **2. Image Generation** |
+| :---: | :---: |
+| <img src="examples/0-1.png" width="100%"> <br> *Generates scripts using Llama-3.3-70b* | <img src="examples/0-2.png" width="100%"> <br> *Visualizes scenes using SDXL-Turbo* |
+| **3. Audio Generation** | **4. Video Generation** |
+| <img src="examples/0-3.png" width="100%"> <br> *Synthesizes narration via EdgeTTS* | <img src="examples/0-4.png" width="100%"> <br> *Animates video with LTX & FFmpeg* |
 
 ---
 
