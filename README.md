@@ -8,6 +8,12 @@ This project implements a complete generative AI pipeline orchestrated via a **G
 
 > **Script** (Llama-3.3-70b via Groq) ➡️ **Images** (SDXL-Turbo) ➡️ **Audio** (EdgeTTS) ➡️ **Video** (LTX) ➡️ **Composition** (FFmpeg)
 
+
+---
+
+## 📷 UI Screenshot
+
+
 ---
 
 ## 🌟 Background & Motivation
