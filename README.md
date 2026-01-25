@@ -40,7 +40,7 @@ If you find this project interesting, please give it a ⭐ **Star**! Thanks!!
 
 This project implements a complete generative AI pipeline orchestrated via a **Gradio Web UI**, allowing users to create short films from simple text prompts entirely locally (with API support for text).
 
-> **Script** (Llama-3.3-70b via Groq) ➡️ **Images** (SDXL-Turbo) ➡️ **Audio** (EdgeTTS) ➡️ **Video** (LTX) ➡️ **Composition** (FFmpeg)
+> **Script** (Llama-3.3-70b-versatile via Groq) ➡️ **Images** (SDXL-Turbo) ➡️ **Audio** (EdgeTTS) ➡️ **Video** (LTX) ➡️ **Composition** (FFmpeg)
 
 ```mermaid
 graph TD
@@ -60,7 +60,7 @@ graph TD
 
     subgraph Script_Engine ["🧠 Script Engine (Groq API)"]
         direction TB
-        B["🤖 Llama-3.3-70b"]:::llm
+        B["🤖 Llama-3.3-70b-versatile"]:::llm
         B -->|Regex Parsing| C{Scene Splitter}
         C -->|Output 1| D["📜 Narration Text"]
         C -->|Output 2| E["🖼️ SDXL Image Prompt"]
@@ -150,12 +150,12 @@ Here is a walkthrough of the generation pipeline using the Gradio UI:
 
 ## 🌟 Background & Motivation
 
-The 2025 Google I/O Developer Conference showcased groundbreaking advancements in AI, particularly the **Veo3 model** and **Flow platform**, demonstrating cinema-quality text-to-movie generation. While impressive, these proprietary tools often come with high costs or restricted access.
+The 2025 Google I/O Developer Conference showcased groundbreaking advancements in AI, particularly the **Veo3 model** and **Flow platform**, demonstrating cinema-quality text-to-movie generation. While impressive, **these proprietary tools often come with high costs or restricted access**.
 
 **Our Mission:**
-The goal of **Nano Cinema AI Video Studio** is to **democratize AI video creation**. We aim to solve resource constraints by combining efficient open-source models to achieve a "free and unlimited" video production workflow that runs smoothly on consumer-grade hardware.
+The goal of **Nano Cinema AI Video Studio** is to **democratize AI video creation**. We aim to solve resource constraints by combining efficient open-source models to achieve a **"free and unlimited"** video production workflow that runs smoothly on consumer-grade hardware.
 
-* ✅ **Hardware Tested:** NVIDIA GeForce RTX 4060 (8GB VRAM)
+* ✅ **Hardware Tested:** NVIDIA GeForce RTX 4060 (8GB VRAM) *1
 * ✅ **Result:** High-quality image and video generation without requiring enterprise-level GPUs.
 
 ---
@@ -189,7 +189,7 @@ Follow these steps to set up **Nano Cinema AI Video Studio** on your local machi
 
 * **Operating System:** Windows 10/11 (Recommended) or Linux.
 * **Python:** Version 3.10 or higher.
-* **GPU:** NVIDIA GeForce RTX 4060 or higher (VRAM 8GB+ is required, 12GB+ recommended for optimal LTX-Video performance).
+* **GPU:** NVIDIA GeForce RTX 4060 or higher (VRAM 8GB+ is required).
 * **FFmpeg:** Required for video processing and audio merging.
 
 ### 🛠️ Installation
@@ -272,7 +272,7 @@ jupyter notebook
 In the browser window that opens, navigate to and click on `Nano_Cinema_AI_Video_Studio.ipynb`.
 
 **Run the Application:**
-Execute the cells sequentially from top to bottom. The final cell will launch the Gradio UI and provide a local URL (e.g., `http://127.0.0.1:7860`) where you can start creating movies.
+Execute the cells sequentially from top to bottom. The final cell will launch the Gradio UI and provide a local URL (e.g., `http://127.0.0.1:7860`) where you can start creating movies or videos.
 
 ---
 
@@ -328,8 +328,8 @@ This project uses **SDXL-Turbo**, a distilled model that behaves differently fro
 * **Standard SDXL:** Requires 20-50 steps.
 * **Nano Cinema (Turbo):**
     * `1-2 Steps`: Fast but rough. Good for testing composition.
-    * `6-8 Steps` **(Recommended)**: The "Sweet Spot". Provides excellent detail (e.g., semi-transparency, fur) without slowing down the system.
-    * `>10 Steps`: Diminishing returns. Can sometimes lead to "burnt" (over-saturated) images or excessive contrast.
+    * `6-10 Steps` **(Recommended)**: The "Sweet Spot". Provides excellent detail (e.g., semi-transparency, fur) without slowing down the system.
+    * `>15 Steps`: Diminishing returns. Can sometimes lead to "burnt" (over-saturated) images or excessive contrast.
 
 #### 2. CFG Scale
 This controls how strictly the AI follows your prompt versus its own creativity.
@@ -337,7 +337,7 @@ This controls how strictly the AI follows your prompt versus its own creativity.
 * **Standard SDXL:** Usually ~7.0.
 * **Nano Cinema (Turbo):** ⚠️ **CRITICAL: Keep it low!**
     * `0.0`: The model ignores your prompt entirely (Pure hallucination).
-    * `1.5 - 2.5` **(Recommended)**: The optimal range for Turbo. It follows the prompt but keeps the image natural.
+    * `1.0 - 2.5` **(Recommended)**: The optimal range for Turbo. It follows the prompt but keeps the image natural.
     * `> 3.0`: The image will likely "fry" (become pixelated, deep fried colors, or distorted).
 
 #### 3. Video FPS
