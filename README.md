@@ -22,7 +22,7 @@
 **An open-source, end-to-end AI video production pipeline optimized for 8GB VRAM consumer GPUs.**     
 We aim to solve resource constraints by combining efficient open-source models to achieve a **"free and unlimited"** video production workflow that **runs smoothly on consumer-grade hardware**.
 
-If you find this project interesting, please give it a ⭐ **Star**! Thanks!!
+If you find this project interesting, please give it a ⭐ **Star**! Thanks!!🙏🙏🙏
 
 ## 📑 Table of Contents
 - [🚀 Workflow Overview](#-workflow-overview)
@@ -34,7 +34,7 @@ If you find this project interesting, please give it a ⭐ **Star**! Thanks!!
 - [📘 User Guide](#-user-guide)
 - [🔭 Roadmap & Vision](#-roadmap--vision)
 - [🙏 Acknowledgements](#-acknowledgements)
-- [📈 Star History](#-star-history)
+- [📈 Star History](#-star-history)🙏
 
 ## 🚀 Workflow Overview
 
@@ -416,7 +416,7 @@ We stand on the shoulders of giants. This project would not be possible without 
 ---
 
 ## 📈 Star History
-
+🙏🙏
 <a href="https://star-history.com/#wajason/Nano_Cinema_AI_Video_Studio&Date">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wajason/Nano_Cinema_AI_Video_Studio&type=Date&theme=dark" />
